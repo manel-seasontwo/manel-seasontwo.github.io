@@ -18,7 +18,7 @@
 
       <section aria-labelledby="signup-heading" class="card">
         <h2 id="signup-heading">Join the waiting list</h2>
-        <form id="waiting-list" class="form" method="post" action="{{ site.form_endpoint }}" data-endpoint="{{ site.form_endpoint }}" novalidate>
+  <form id="waiting-list" class="form" method="post" action="{{ site.form_endpoint }}" data-endpoint="{{ site.form_endpoint }}">
           <!-- Hidden helpers for Formspree and spam-bot resilience -->
           <input type="hidden" name="_subject" value="Season Two waiting list signup">
           <input type="hidden" name="_format" value="json">
@@ -28,7 +28,7 @@
           </div>
 
           <label for="name">Full name <span aria-hidden="true">*</span>
-            <input id="name" name="name" type="text" required autocomplete="name" placeholder="Nora Olsen">
+            <input id="name" name="name" type="text" required pattern=".*\S.*" minlength="2" autocomplete="name" placeholder="Nora Olsen">
           </label>
 
           <label for="email">Email <span aria-hidden="true">*</span>
@@ -70,6 +70,6 @@
       </div>
     </div>
 
-    <script src="/assets/js/form-v2.js" defer></script>
+    <script src="/assets/js/form.js" defer></script>
   </body>
 </html>

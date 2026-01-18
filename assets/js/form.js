@@ -63,10 +63,62 @@ document.addEventListener('DOMContentLoaded', function(){
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
 
-    // Convert form to JSON and add lightweight metadata for audit/GDPR
-    const fd = new FormData(form);
-    const payload = {};
-    fd.forEach((v,k)=>{payload[k]=v});
+    // Stronger client-side validation and payload construction
+    const nameEl = form.querySelector('[name="name"]');
+    const emailEl = form.querySelector('[name="email"]');
+    const phoneEl = form.querySelector('[name="phone"]');
+    const tripEl = form.querySelector('[name="trip"]');
+    const subscribeEl = form.querySelector('[name="subscribe"]');
+    const consentEl = form.querySelector('[name="consent"]');
+
+    const nameVal = nameEl && String(nameEl.value || '').trim();
+    const emailVal = emailEl && String(emailEl.value || '').trim();
+    const phoneVal = phoneEl && String(phoneEl.value || '').trim();
+    const tripVal = tripEl && String(tripEl.value || '').trim();
+    const subscribeVal = subscribeEl && (subscribeEl.checked ? 'yes' : 'no');
+    const consentChecked = consentEl && consentEl.checked;
+
+    // Enforce required semantics (no whitespace-only submissions)
+    if(!nameVal){
+      const msg = 'Please enter your full name.';
+      statusEl.textContent = msg;
+      showToast(msg, 'error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join waiting list';
+      return;
+    }
+
+    // Basic email format check
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailVal || !emailRe.test(emailVal)){
+      const msg = 'Please enter a valid email address.';
+      statusEl.textContent = msg;
+      showToast(msg, 'error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join waiting list';
+      return;
+    }
+
+    // Consent must be explicitly checked
+    if(!consentChecked){
+      const msg = 'You must consent to storing your data to join the waiting list.';
+      statusEl.textContent = msg;
+      showToast(msg, 'error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Join waiting list';
+      return;
+    }
+
+    // Build payload using trimmed values only
+    const payload = {
+      name: nameVal,
+      email: emailVal,
+      phone: phoneVal || '',
+      trip: tripVal || '',
+      subscribe: subscribeVal || 'no',
+      consent: consentChecked ? 'yes' : 'no'
+    };
+
     // Add a timestamp so we can demonstrate consent/time of opt-in for GDPR
     payload.signup_ts = new Date().toISOString();
     // add where the signup came from

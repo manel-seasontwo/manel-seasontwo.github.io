@@ -2,6 +2,8 @@
 title: Privacy & Data
 ---
 
+Privacy & Data
+
 Season Two — Waiting List
 
 What we collect
