@@ -15,4 +15,14 @@ button{background:var(--accent);color:#fff;padding:.8rem 1.1rem;border-radius:6p
 .note{margin-top:.5rem;color:var(--muted);font-size:.9rem}
 #form-status{margin-top:.5rem;color:var(--muted)}
 
+/* Toast / notification */
+.toast{position:fixed;top:1.5rem;right:1.5rem;z-index:1000;min-width:260px;max-width:420px;background:#111;color:#fff;padding:.85rem;border-radius:10px;box-shadow:0 8px 24px rgba(16,24,40,.35);opacity:0;transform:translateY(-8px) scale(.98);transition:opacity .22s ease,transform .22s ease;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.toast .toast-inner{display:flex;align-items:flex-start;gap:.6rem}
+.toast p{margin:0;flex:1;font-size:.95rem}
+.toast .toast-close{background:transparent;border:0;color:rgba(255,255,255,.85);font-size:1.1rem;line-height:1;padding:.1rem .25rem;cursor:pointer}
+.toast.success{background:linear-gradient(180deg,#1166ff,#0b6efd)}
+.toast.error{background:linear-gradient(180deg,#b00020,#d32f2f)}
+
+
 @media(min-width:700px){body{padding:3rem}}
