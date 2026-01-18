@@ -1,3 +1,7 @@
+# Core site config
 theme: jekyll-theme-minimal
 title: Season Two
 description: WIP. Sign up for updates.
+form_endpoint: "https://formspree.io/f/mojjepvj"
+# If you later want to point to another endpoint, update form_endpoint here.
+# privacy_url: /privacy.md

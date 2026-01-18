@@ -1,0 +1,68 @@
+---
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Season Two — Waiting List</title>
+    <meta name="description" content="Join the Season Two waiting list for future trips.">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Season Two</h1>
+        <p class="lead">Join the waiting list to be first to hear about future trips.</p>
+      </header>
+
+      <section aria-labelledby="signup-heading" class="card">
+        <h2 id="signup-heading">Join the waiting list</h2>
+        <form id="waiting-list" class="form" method="post" action="{{ site.form_endpoint }}" data-endpoint="{{ site.form_endpoint }}" novalidate>
+          <!-- Hidden helpers for Formspree and spam-bot resilience -->
+          <input type="hidden" name="_subject" value="Season Two waiting list signup">
+          <input type="hidden" name="_format" value="json">
+          <!-- Honeypot field for bots -->
+          <div class="visually-hidden">
+            <label>Leave this field empty<input name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          </div>
+
+          <label for="name">Full name <span aria-hidden="true">*</span>
+            <input id="name" name="name" type="text" required autocomplete="name" placeholder="Jane Doe">
+          </label>
+
+          <label for="email">Email <span aria-hidden="true">*</span>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+          </label>
+
+          <label for="phone">Phone (optional)
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+47 123 45 678">
+          </label>
+
+          <label for="trip">Preferred trip or note (optional)
+            <input id="trip" name="trip" type="text" placeholder="Summer fjord exploration, photography trip...">
+          </label>
+
+          <label class="checkbox">
+            <input id="subscribe" name="subscribe" type="checkbox" value="yes">
+            I agree to receive occasional emails about trips and updates.
+          </label>
+
+          <label class="checkbox">
+            <input id="consent" name="consent" type="checkbox" required>
+            I consent to Season Two storing my data for the waiting list (required).
+          </label>
+
+          <div id="form-status" role="status" aria-live="polite"></div>
+
+          <div class="actions">
+            <button id="submit-btn" type="submit">Join waiting list</button>
+          </div>
+  </form>
+  <p class="note">We value your privacy — <a href="/privacy-updated.md">data & privacy</a>.</p>
+      </section>
+    </main>
+
+    <script src="/assets/js/form.js" defer></script>
+  </body>
+</html>
