@@ -5,71 +5,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Season Two — Waiting List</title>
-    <meta name="description" content="Join the Season Two waiting list for future trips.">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>Season Two</title>
+    <meta name="description" content="Season Two — Because passions don't have an off-season.">
+    <style>
+      html,body{height:100%;margin:0}
+      body{
+        background:#bbff9d;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        color:#0a0a0a;
+        text-align:center;
+      }
+      .wrap{padding:2rem;max-width:900px}
+      h1{font-size:clamp(2.5rem,6vw,6rem);margin:0 0 .5rem;letter-spacing: -0.02em}
+      p.lead{font-size:1.25rem;margin:0 0 1.5rem;opacity:.9}
+      .cta{display:inline-block;padding:.9rem 1.2rem;background:#000;border-radius:8px;color:#fff;text-decoration:none;font-weight:600}
+      .small{margin-top:.75rem;font-size:.9rem;opacity:.85}
+    </style>
   </head>
   <body>
-    <main class="container">
-      <header>
-        <h1>Season Two</h1>
-        <p class="lead">Join the waiting list to be first to hear about future trips.</p>
-      </header>
-
-      <section aria-labelledby="signup-heading" class="card">
-        <h2 id="signup-heading">Join the waiting list</h2>
-  <form id="waiting-list" class="form" method="post" action="{{ site.form_endpoint }}" data-endpoint="{{ site.form_endpoint }}">
-          <!-- Hidden helpers for Formspree and spam-bot resilience -->
-          <input type="hidden" name="_subject" value="Season Two waiting list signup">
-          <input type="hidden" name="_format" value="json">
-          <!-- Honeypot field for bots -->
-          <div class="visually-hidden">
-            <label>Leave this field empty<input name="_gotcha" tabindex="-1" autocomplete="off"></label>
-          </div>
-
-          <label for="name">Full name <span aria-hidden="true">*</span>
-            <input id="name" name="name" type="text" required pattern=".*\S.*" minlength="2" autocomplete="name" placeholder="Nora Olsen">
-          </label>
-
-          <label for="email">Email <span aria-hidden="true">*</span>
-            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
-          </label>
-
-          <label for="phone">Phone (optional)
-            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+47 123 45 678">
-          </label>
-
-          <label for="trip">Preferred trip or note (optional)
-            <input id="trip" name="trip" type="text" placeholder="Skydiving, climbing, surf camp...">
-          </label>
-
-          <label class="checkbox">
-            <input id="subscribe" name="subscribe" type="checkbox" value="yes">
-            I agree to receive occasional emails about trips and updates.
-          </label>
-
-          <label class="checkbox">
-            <input id="consent" name="consent" type="checkbox" required>
-            I consent to Season Two storing my data for the waiting list (required).
-          </label>
-
-          <div id="form-status" role="status" aria-live="polite"></div>
-
-          <div class="actions">
-            <button id="submit-btn" type="submit">Join waiting list</button>
-          </div>
-  </form>
-  <p class="note">We value your privacy — <a href="/privacy">data & privacy</a>.</p>
-      </section>
-    </main>
-    <!-- Visible toast notification for form feedback -->
-    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
-      <div class="toast-inner">
-        <p id="toast-message">Message</p>
-        <button id="toast-close" class="toast-close" aria-label="Close notification">×</button>
-      </div>
+    <div class="wrap" role="main">
+      <h1>Season Two</h1>
+      <p class="lead">Because passions don't have an off-season.</p>
+      <a class="cta" href="https://forms.gle/oW7jFYGDzNmK5Lf36" target="_blank" rel="noopener">Join our first experience — Cap de Creus 2026</a>
+      <p class="small">Click to sign up. We'll reach out with details.</p>
     </div>
-
-    <script src="/assets/js/form.js" defer></script>
   </body>
 </html>
